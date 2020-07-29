@@ -198,7 +198,7 @@
     for (let authorLink of authorLinks){
       authorLink.classList.add('active');
     }
-    generateTitleLinks('[data-author~="' + href + '"]');
+    generateTitleLinks('[data-author="' +author+ '"]');
   };
   
 
