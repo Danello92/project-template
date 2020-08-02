@@ -1,5 +1,45 @@
 @import url("https://fonts.googleapis.com/css?family=Oswald:400,600|Sacramento|Source+Sans+Pro:300&subset=latin-ext");
 /* Variables */
+/* Tag-size*/
+.tags a:link {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.tags a:visited {
+  color: black;
+}
+
+.tag-size-0:link {
+  color: grey;
+  font-size: 100%;
+}
+
+.tag-size-1:link {
+  color: grey;
+  font-size: 120%;
+}
+
+.tag-size-2:link {
+  color: grey;
+  font-size: 140%;
+}
+
+.tag-size-3:link {
+  color: grey;
+  font-size: 160%;
+}
+
+.tag-size-4:link {
+  color: grey;
+  font-size: 180%;
+}
+
+.tag-size-5:link {
+  color: grey;
+  font-size: 200%;
+}
+
 /* Global */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -12,6 +52,8 @@ body {
   font-weight: 300;
   font-size: 16px;
   line-height: 1.7;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
