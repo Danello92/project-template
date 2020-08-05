@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
     <link rel="stylesheet" href="sass/style.css">
     <title>blog</title>
 </head>
@@ -179,6 +181,21 @@
       </main>
     </div>
   </div>
+   <script id="template-article-link" type="text/x-handlebars-template">
+    <li><a href="#{{ id }}"><span>{{ title }}</span></a></li>
+  </script>
+  <script id="template-article-tag" type="text/x-handlebars-template">
+    <li><a href="#{{ tag }}"><span>{{ title }}</span></a></li>
+  </script>
+  <script id="template-article-author" type="text/x-handlebars-template">
+    <li><a href="#{{ author }}"><span>{{ title }}</span></a></li>
+  </script>
+  <script id="template-tag-cloud-link" type="text/x-handlebars-template">
+    {{#each tags}}
+  <li>{{ tag }}</li>
+  {{/each}}
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

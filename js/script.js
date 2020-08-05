@@ -8,7 +8,13 @@
 // for(let link of links){
 //   console.log(link);
 // }
+
 {
+  const templates = {
+    articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+    articleTag: Handlebars.compile(document.querySelector('#template-article-tag').innerHTML),
+    articleAuthor: Handlebars.compile(document.querySelector('#template-article-author').innerHTML),
+  };
   /* remove class 'active' from all article links  */
   //Creative object opt
   const opt = {
@@ -64,7 +70,11 @@
       const articleTitle = article.querySelector(opt.TitleSelector).innerHTML;
       // console.log(articleTitle);
       /* get the title from the title element */
-      const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+      const linkHTMLData = {
+        id: articleId, 
+        title: articleTitle
+      };
+      const linkHTML = templates.articleLink(linkHTMLData);
       // console.log(linkHTML);
       /* create HTML of the link */
       // titleList.innerHTML = titleList.innerHTML + linkHTML;
@@ -127,7 +137,11 @@
       for (let tag of articleTagsArray) {
         // console.log(tag);
         /* generate HTML of the link */
-        const linkHTML = ' <li><a href="#tag-' + tag + '">' + tag + ' </a></li>  ';
+        const linkHTMLData = {
+          tag: tag,
+          title: tag
+        };
+        const linkHTML = templates.articleTag(linkHTMLData);
         /* add generated code to html variable */
         html = linkHTML;
         /* [NEW] check if this link is NOT already in allTags */
@@ -155,11 +169,9 @@
     for (let tag in allTags) {
       // console.log(tag);
       /* [NEW] generate code of a link and add it to allTagsHTML */
-
       const tagLinkHTML = '<li><a href="#tag-' + tag + '" class="' + calculateTagClass(allTags[tag], tagsParams) + '">' + tag +'</a></li>';
       // console.log('tagLinkHTML:', tagLinkHTML);
       allTagsHTML += tagLinkHTML;
-
     }
     /* [NEW] END LOOP: for each tag in allTags: */
     /*[NEW] add HTML from allTagsHTML to tagList */
@@ -227,9 +239,13 @@
       // console.log(articleAuthor);
       let html = '';
       // console.log(html);
-      
       /* generate HTML of the link */
-      const linkHTML = 'by: <a href="#author-' + artAuthor + '">' + artAuthor + '</a>';
+      
+      const linkHTMLData = {
+        id: artAuthor,
+        title: artAuthor,
+      };
+      const linkHTML = templates.articleAuthor(linkHTMLData);
       /* add generated code to html variable */
       html = html + linkHTML;
       if (!allAuthor[artAuthor]) {
