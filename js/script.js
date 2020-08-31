@@ -169,6 +169,7 @@
     for (let tag in allTags) {
       // console.log(tag);
       /* [NEW] generate code of a link and add it to allTagsHTML */
+
       const tagLinkHTML = '<li><a href="#tag-' + tag + '" class="' + calculateTagClass(allTags[tag], tagsParams) + '">' + tag +'</a></li>';
       // console.log('tagLinkHTML:', tagLinkHTML);
       allTagsHTML += tagLinkHTML;
@@ -242,7 +243,7 @@
       /* generate HTML of the link */
       
       const linkHTMLData = {
-        id: artAuthor,
+        author: artAuthor,
         title: artAuthor,
       };
       const linkHTML = templates.articleAuthor(linkHTMLData);
@@ -259,6 +260,7 @@
       }
       /* insert HTML of all the links into the tags wrapper */
       authorWraper.insertAdjacentHTML('beforeend', html);
+      console.log(html);
       /* END LOOP: for every article: */
     }
     //łapanie classy tagów Autorów
@@ -283,7 +285,7 @@
   generateAuthor();
   //funkcje addClickListenersToAuthors i authorClickHandler
   const authorClickHandler = function (event) {
-    // console.log(event);
+    console.log('sprzedam opa');
     event.preventDefault();
     const clickedElement = this;
     const href = clickedElement.getAttribute('href');
@@ -304,9 +306,11 @@
     generateTitleLinks('[data-author="' + author + '"]');
   };
   const addClickListenersToAuthors = function () {
+    
     /* find all links to tags */
     const allLinksToAuthor = document.querySelectorAll('a[href^="#author"]');
     /* START LOOP: for each link */
+    console.log(allLinksToAuthor);
     // console.log(allLinksToAuthor);
     for (let linkAutor of allLinksToAuthor) {
 
