@@ -6,38 +6,38 @@
   display: inline-block;
 }
 
+.tags {
+  display: inline-block;
+  overflow: hidden;
+}
+
 .tags a:visited {
   color: black;
 }
 
-.tag-size-0:link {
+.tag-size-1:link {
   color: grey;
   font-size: 100%;
 }
 
-.tag-size-1:link {
-  color: grey;
-  font-size: 120%;
-}
-
 .tag-size-2:link {
   color: grey;
-  font-size: 140%;
+  font-size: 150%;
 }
 
 .tag-size-3:link {
   color: grey;
-  font-size: 160%;
+  font-size: 200%;
 }
 
 .tag-size-4:link {
   color: grey;
-  font-size: 180%;
+  font-size: 300%;
 }
 
 .tag-size-5:link {
   color: grey;
-  font-size: 200%;
+  font-size: 350%;
 }
 
 /* Global */
